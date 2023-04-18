@@ -5,6 +5,7 @@ export const ProductContext = createContext();
 
 export const ProductProvider = ({ children }) => {
   const [productData, setProductData] = useState([]);
+  const [aboutData, setAboutData] = useState([]);
 
   const getData = async () => {
     try {
@@ -21,8 +22,13 @@ export const ProductProvider = ({ children }) => {
     getData();
   }, []);
 
+  const handleAbout = (item) => {
+    const filteredData = productData.filter((pro) => pro.id === item.id);
+    setAboutData(filteredData);
+  };
+
   return (
-    <ProductContext.Provider value={{ productData }}>
+    <ProductContext.Provider value={{ productData, handleAbout, aboutData }}>
       {children}
     </ProductContext.Provider>
   );
