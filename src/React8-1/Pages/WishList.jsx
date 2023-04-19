@@ -7,7 +7,15 @@ export const WishList = () => {
       <h1>WishList</h1>
       <h3>Items:{wishLists.length}</h3>
       {wishLists.map((item) => (
-        <li key={item.id}>
+        <li
+          key={item.id}
+          style={{
+            listStyle: "none",
+            border: "1px solid black",
+            margin: "0.5rem auto",
+            borderRadius: "5px",
+          }}
+        >
           <p>{item.name}</p>
           <p>{item.description}</p>
           <p>Quantity: {item.quantity}</p>
